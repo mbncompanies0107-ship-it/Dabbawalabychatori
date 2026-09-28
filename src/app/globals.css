@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg: #f3eee6;
+  --paper: #fffcf8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 500px at 90% -10%, rgba(225, 90, 42, 0.08), transparent 50%),
+    radial-gradient(900px 420px at -10% 0%, rgba(14, 98, 70, 0.08), transparent 46%),
+    var(--bg);
+  color: #1c1917;
+}
+
+::selection {
+  background: #0e6246;
+  color: #f3eee6;
+}
+
+:focus-visible {
+  outline: 2px solid #0e6246;
+  outline-offset: 3px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.map-surface {
+  background-color: #e7f0ea;
+  background-image:
+    linear-gradient(rgba(14, 98, 70, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 98, 70, 0.08) 1px, transparent 1px),
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.7), transparent 40%);
+  background-size: 28px 28px, 28px 28px, cover;
+}
+
+@keyframes rider-pulse {
+  0% { transform: scale(0.8); opacity: 0.7; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.rider-pulse {
+  animation: rider-pulse 1.8s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rider-pulse { animation: none; }
+}
